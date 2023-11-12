@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+</head>
+
+<body>
+    <form id="form">
+        <label for="username">Enter Your UserName
+            <input type="text" name="username" id="username" required>
+        </label>
+        <label for="password">Enter Your Password
+            <input type="password" name="password" id="password" required>
+        </label>
+        <button type="submit">Login</button>
+    </form>
+    <script>
+        const username = document.getElementById('username');
+        const password = document.getElementById('password');
+        const form = document.getElementById('form');
+
+        const baseURL = 'http://localhost:3000/'
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            console.log(password.value);
+
+            if (!username.value === '' || !password.value === '') {
+
+                return alert("Enter UserName and Password")
+            }
+
+            const res = await fetch(baseURL + 'admin/login', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify({
+                    username: username.value,
+                    password: password.value,
+                }),
+            }).then(async (r) => {
+
+                username.value = '';
+                password.value = '';
+                const data = await r.json();
+                console.log(r.status);
+                
+                window.location.href='/admin'
+
+
+            })
+
+
+        })
+
+    </script>
+</body>
+
+</html>
