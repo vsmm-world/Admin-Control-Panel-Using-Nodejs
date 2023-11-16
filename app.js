@@ -1,11 +1,11 @@
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 const ConnectDB = require('./db/db');
 const {adminAuth, logout, chekAuth} = require('./auth/auth')
 const cookieParser = require('cookie-parser')
 
-
+app.use(express.static('public'))
 app.set("view engine", 'ejs');
 app.use(express.json())
 app.use(express.urlencoded({extended:false}));

@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    background-color: #571b1b;
+    border-radius: 3px;
+    margin-bottom: 20px;
+}
+nav ul {
+    display: flex;
+}
+nav ul li  {
+    list-style: none;
+    padding: 20px;
+}
+nav ul li a{
+    color: black;
+    text-decoration: none;
+}
+nav ul li a:hover{
+    color: #fff;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 10px;
+}
