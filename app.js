@@ -10,6 +10,7 @@ app.set("view engine", 'ejs');
 app.use(express.json())
 app.use(express.urlencoded({extended:false}));
 app.use("/admin",require('./auth/route'));
+app.use("/api",require('./auth/route'));
 app.use(cookieParser())
 
 
