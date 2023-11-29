@@ -35,3 +35,4 @@ app.get('/admin/login',chekAuth, (req, res) => {
 app.get('/admin/logout',logout,(req,res)=>{
     res.redirect('/admin/login')
 })
+
